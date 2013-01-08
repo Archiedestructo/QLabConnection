@@ -1,4 +1,3 @@
-
 This project is an implementation of the OSC Protocol for QLab 3, created for the .NET language. It's intended to be an Object Oriented interface to observe and control QLab workspaces via a UDP connection. I created it for my own uses, it's not meant to be thorough, feel free to use it as you wish.
 
 The project contains a Visual Studio solution with two projects:
@@ -12,7 +11,7 @@ QLabConnection is then comprised of the following classes:
 OSCMessage: 
 Is a wrapper for the Bespoke OSC interface. You could use this alone if you wanted. Simply use the OSC commands outlined by Figure53. Be sure to first either specify OSCMessage.ServerIPAddress or OSCMessage.ServerName (which will resolved the IPAddress). Both these properties are Static. Then use OSCMessage.SendOSCMessage(OSCAddress) to send a command to QLab (This is also static). Remember, if you use this alone, there is no reply handler. 
 
-NOTE: The following classes create a threading SpinWait cycle!! This means 1) all data will be dynamic, up-to-date, pulled directly from QLab rather than the local object variables and 2) they will timeout if the connection to QLab is lost. 
+NOTE: The following classes create a threading SpinWait cycle!! This means 1) all data will be dynamic, up-to-date, pulled directly from QLab rather than the local object variables and 2) they will timeout if the connection to QLab is lost. Finally 3) if using a list or property multiple times, it would be more efficient to pull that value into a local variable before using it in a code sequence.
 
 QLabServer:
 Creates an OSC Server. Again, be sure to specify a Server Name or IPAddress. Here you can also send custom OSC Addresses using SendOSCMessage. This time however, you can create a ResponseHandler event to receive replies.
