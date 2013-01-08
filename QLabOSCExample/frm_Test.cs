@@ -30,11 +30,12 @@ namespace QLabOSCExample
         void server_CueUpdated(string WorkspaceID, string CueID)
         {
             MessageBox.Show("CUE UPDATES");
+            
         }
 
         void server_WorkspaceUpdated(string WorkspaceID)
         {
-            PopulateWorkspaces();
+            MessageBox.Show("WORKSPACE UPDATES");
         }
 
         #endregion
